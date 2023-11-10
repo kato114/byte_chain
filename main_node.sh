@@ -84,7 +84,7 @@ if [[ $overwrite == "y" || $overwrite == "Y" ]]; then
 
 	# Set base_fee in genesis
 	jq '.app_state["feemarket"]["params"]["base_fee"]="0"' "$GENESIS" >"$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS"
-	jq '.app_state["feemarket"]["params"]["min_gas_price"]="1000000000000.000000000000000000"' "$GENESIS" >"$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS"
+	jq '.app_state["feemarket"]["params"]["min_gas_price"]="10000000.000000000000000000"' "$GENESIS" >"$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS"
 
 	# Set min_deposit for proposal in genesis
 	jq '.app_state["gov"]["deposit_params"]["min_deposit"][0]["amount"]="1000000000000000000000000"' "$GENESIS" >"$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS"
