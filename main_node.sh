@@ -162,16 +162,16 @@ if [[ $overwrite == "y" || $overwrite == "Y" ]]; then
 
 	# Allocate genesis accounts (cosmos formatted addresses)
 	
-	byted add-genesis-account ${KEYS[0]} 16000000000000000000000000000exa --keyring-backend $KEYRING --home "$HOMEDIR"
+	byted add-genesis-account ${KEYS[0]} 311951756000000000000000000bit --keyring-backend $KEYRING --home "$HOMEDIR"
 	
 
 	# bc is required to add these big numbers
-	total_supply=$(echo "16000000000000000000000000000" | bc)
+	total_supply=$(echo "311951756000000000000000000" | bc)
 	jq -r --arg total_supply "$total_supply" '.app_state["bank"]["supply"][0]["amount"]=$total_supply' "$GENESIS" >"$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS"
 
 
 	# Sign genesis transaction
-	byted gentx ${KEYS[0]} 6400000000000000000000000exa --keyring-backend $KEYRING --chain-id $CHAINID --home "$HOMEDIR"  --fees 200000000000000000exa --min-self-delegation 6400000
+	byted gentx ${KEYS[0]} 25000000000000000000000bit --keyring-backend $KEYRING --chain-id $CHAINID --home "$HOMEDIR"  --fees 2000000000000bit --min-self-delegation 6400000
 
 
 
@@ -188,4 +188,4 @@ fi
 
 # byted start --pruning=nothing "$TRACE" --gas-prices auto --gas-adjustment 1.3 --fees auto --rpc.laddr tcp://0.0.0.0:26657 --log_level $LOGLEVEL --json-rpc.api eth,txpool,personal,net,debug,web3 --api.enable --home "$HOMEDIR"
 
-# byted tx staking create-validator --amount=1000000000000000000000exa --from=validator2 --pubkey=$(byted tendermint show-validator) --moniker="validator2" --chain-id byte_1919-1 --commission-rate="0.1" --commission-max-rate="0.2" --commission-max-change-rate="0.05" --min-self-delegation="500000000" --keyring-backend=test --yes --broadcast-mode block
+# byted tx staking create-validator --amount=1000000000000000000000bit --from=validator2 --pubkey=$(byted tendermint show-validator) --moniker="validator2" --chain-id byte_1919-1 --commission-rate="0.1" --commission-max-rate="0.2" --commission-max-change-rate="0.05" --min-self-delegation="500000000" --keyring-backend=test --yes --broadcast-mode block
