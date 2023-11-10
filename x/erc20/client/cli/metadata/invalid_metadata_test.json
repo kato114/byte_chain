@@ -1,0 +1,21 @@
+{
+  "metadata": [
+    {
+      "description": 1,
+      "denom_units": [
+        {
+          "denom": "bit",
+          "exponent": 0
+        },
+        {
+          "denom": "bext",
+          "exponent": 18
+        }
+      ],
+      "base": "bit",
+      "display": "bit",
+      "name": "bit",
+      "symbol": "BEXT"
+    }
+  ]
+}
