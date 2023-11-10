@@ -171,7 +171,7 @@ if [[ $overwrite == "y" || $overwrite == "Y" ]]; then
 
 
 	# Sign genesis transaction
-	byted gentx ${KEYS[0]} 25000000000000000000000bit --keyring-backend $KEYRING --chain-id $CHAINID --home "$HOMEDIR"  --fees 2000000000000bit --min-self-delegation 6400000
+	byted gentx ${KEYS[0]} 25000000000000000000000bit --keyring-backend $KEYRING --chain-id $CHAINID --home "$HOMEDIR"  --fees 20000000000000bit --min-self-delegation 6400000
 
 
 
