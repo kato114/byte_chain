@@ -59,7 +59,7 @@ if [[ $overwrite == "y" || $overwrite == "Y" ]]; then
 	# Set moniker and chain-id for Evmos (Moniker can be anything, chain-id must be an integer)
 	byted init $MONIKER -o --chain-id $CHAINID --home "$HOMEDIR"
 
-	# Change parameter token denominations to bext
+	# Change parameter token denominations to byte
 	jq '.app_state["staking"]["params"]["bond_denom"]="bit"' "$GENESIS" >"$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS"
 	jq '.app_state["crisis"]["constant_fee"]["denom"]="bit"' "$GENESIS" >"$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS"
 	jq '.app_state["gov"]["deposit_params"]["min_deposit"][0]["denom"]="bit"' "$GENESIS" >"$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS"
@@ -162,8 +162,8 @@ if [[ $overwrite == "y" || $overwrite == "Y" ]]; then
 
 	# Allocate genesis accounts (cosmos formatted addresses)
 	
-	byted add-genesis-account ${KEYS[0]} 311951756000000000000000000bit --keyring-backend $KEYRING --home "$HOMEDIR"
-	
+	byted add-genesis-account ${KEYS[0]} 150025000000000000000000000bit --keyring-backend $KEYRING --home "$HOMEDIR"
+	150.000.000
 
 	# bc is required to add these big numbers
 	total_supply=$(echo "311951756000000000000000000" | bc)
