@@ -163,10 +163,9 @@ if [[ $overwrite == "y" || $overwrite == "Y" ]]; then
 	# Allocate genesis accounts (cosmos formatted addresses)
 	
 	byted add-genesis-account ${KEYS[0]} 150025000000000000000000000bit --keyring-backend $KEYRING --home "$HOMEDIR"
-	150.000.000
 
 	# bc is required to add these big numbers
-	total_supply=$(echo "311951756000000000000000000" | bc)
+	total_supply=$(echo "150025000000000000000000000" | bc)
 	jq -r --arg total_supply "$total_supply" '.app_state["bank"]["supply"][0]["amount"]=$total_supply' "$GENESIS" >"$TMP_GENESIS" && mv "$TMP_GENESIS" "$GENESIS"
 
 

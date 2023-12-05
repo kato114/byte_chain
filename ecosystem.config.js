@@ -1,6 +1,6 @@
 module.exports = {
   apps : [{
-    script: 'byted start',
-    name: 'byte'
+    name   : "Byte Node",
+    script : "byted start"
   }]
-};
+}
